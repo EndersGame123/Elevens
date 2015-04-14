@@ -43,7 +43,7 @@ public class Card {
      * @return this <code>Card's</code> suit.
      */
     public String suit() {
-        return this.suit
+        return this.suit;
 
     }
 
@@ -52,7 +52,7 @@ public class Card {
      * @return this <code>Card's</code> rank.
      */
     public String rank() {
-        return this.rank
+        return this.rank;
 
     }
 
