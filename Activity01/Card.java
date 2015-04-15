@@ -34,7 +34,9 @@ public class Card {
      *                  containing the point value of the card
      */
     public Card(String cardRank, String cardSuit, int cardPointValue) {
-
+    String rank= cardRank;
+    String suit= cardSuit;
+    int pointValue= cardPointValue;
     }
 
 
