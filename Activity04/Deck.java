@@ -64,7 +64,13 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		int a;
+        for(int b = cards.size() - 1; b > 0; b--){
+            a = (int)((b + 1) * Math.random());
+            Card bCard = cards.set(b, cards.get(a));
+            cards.set(a, bCard);
+        }
+        size = cards.size();
 	}
 
 	/**
@@ -80,6 +86,31 @@ public class Deck {
 		Card c = cards.get(size);
 		return c;
 	}
+	
+	/**
+     * Compares current deck to another to check  
+     * for permutations
+     * @param otherDeck deck to be compared
+     * @return true if the decks are permutations, false otherwise
+     */
+    public boolean arePermutations(Deck otherDeck){
+        if(size() != otherDeck.size())
+            return false;
+        int matchCount = 0;
+        for(Card c : cards){
+            while(otherDeck.size() != 0){
+                if(c.matches(otherDeck.deal())){
+                    matchCount++;
+                    break;
+                }
+            }
+            otherDeck.shuffle();
+        }
+        if(matchCount == size)
+            return true;
+        else
+            return false;
+    }
 
 	/**
 	 * Generates and returns a string representation of this deck.
